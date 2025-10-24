@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom font import (Inter is the default used by Tailwind) */
-        @import url('https://github.com/Iamswas/Jaanvi/blob/main/WhatsApp%20Image%202025-10-24%20at%2018.00.06_6ff3af2d.jpg/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -65,15 +65,16 @@
 
         <!-- Placeholder for a picture of Jaanvi -->
         <div class="w-full h-64 bg-gray-700 rounded-2xl mb-8 flex items-center justify-center border-4 border-dashed border-pink-600/50 overflow-hidden">
-            <!-- To use this, replace the placeholder content with an image tag: -->
-            <!-- <img src="URL_TO_JAANVI_PIC" alt="Jaanvi" class="w-full h-full object-cover"> -->
-            <svg class="w-20 h-20 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
+            <!-- 
+            TO ADD JAANVI'S PICTURE: 
+            Paste the raw link (from clicking the 'Raw' button on GitHub) 
+            into the src="" attribute below.
+            -->
+            <img src="https://raw.githubusercontent.com/Iamswas/Jaanvi/main/WhatsApp%20Image%202025-10-24%20at%2018.00.06_6ff3af2d.jpg" alt="Jaanvi's Photo" class="w-full h-full object-cover">
         </div>
 
         <p class="text-base text-gray-400 mb-6">
-            P.S. I'm counting down the minutes until I see your beautiful smile again. This place feels empty without you.
+            P.S. I'm counting down the minutes untill I get to see you again.
         </p>
 
         <!-- Animated Button -->
@@ -86,7 +87,7 @@
     </div>
 
     <script>
-        const message = "I'm missing you more than words can say.";
+        const message = "I miss you more than words can say.";
         let i = 0;
         const typingSpeed = 75; // milliseconds
 
@@ -114,7 +115,7 @@
             
             try {
                 document.execCommand('copy');
-                statusElement.textContent = "Message copied! Send it to her!";
+                statusElement.textContent = "Message copied! Send it to him!"; // <-- Updated message here
                 statusElement.classList.remove('text-pink-400/0');
                 statusElement.classList.add('text-pink-400');
             } catch (err) {
@@ -134,4 +135,3 @@
     </script>
 </body>
 </html>
-
