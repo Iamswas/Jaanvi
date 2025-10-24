@@ -87,7 +87,7 @@
     </div>
 
     <script>
-        const message = "I miss you too baby"; // <-- Changed message here
+        const message = "I miss you more than words can say."; // Reverted to previous message
         let i = 0;
         const typingSpeed = 75; // milliseconds
 
@@ -115,7 +115,7 @@
             
             try {
                 document.execCommand('copy');
-                statusElement.textContent = "Message copied! Send it to him!";
+                statusElement.textContent = "Message copied! Send it to her!"; // Reverted gender reference
                 statusElement.classList.remove('text-pink-400/0');
                 statusElement.classList.add('text-pink-400');
             } catch (err) {
