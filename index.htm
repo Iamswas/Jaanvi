@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Jaanvi 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #fcd9e5, #ffd6a5);
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin-top: 50px;
+    color: #ff1a75;
+    animation: glow 2s infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 5px #ff1a75, 0 0 10px #ff1a75; }
+    to { text-shadow: 0 0 20px #ff1a75, 0 0 30px #ff1a75; }
+  }
+
+  .section {
+    margin: 80px 20px;
+    padding: 40px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .photo {
+    width: 180px;
+    border-radius: 50%;
+    margin: 20px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .photo:hover {
+    transform: scale(1.2);
+  }
+
+  .secret-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    background: #ff1a75;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .secret-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .secret-msg, .eye-msg {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d6336c;
+    font-weight: bold;
+  }
+
+  audio {
+    margin-top: 20px;
+    outline: none;
+  }
+
+  /* Bolder hearts */
+  .heart {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background: #ff1a75;
+    transform: rotate(-45deg);
+    animation: float 5s linear infinite;
+    border-radius: 5px;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff1a75;
+    border-radius: 50%;
+  }
+
+  .heart::before { top: -12.5px; left: 0; }
+  .heart::after { left: 12.5px; top: 0; }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-800px) rotate(-45deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>For Jaanvi 💖</h1>
+
+<!-- Section 1: Normal Photo -->
+<div class="section">
+  <h2>My Special Girl</h2>
+  <img src="https://drive.google.com/uc?export=download&id=NORMAL_FILE_ID" class="photo" alt="Photo of Jaanvi">
+  <p>You make my heart skip a beat ❤</p>
+</div>
+
+<!-- Section 2: Eye Photo -->
+<div class="section">
+  <h2>Just Those Eyes 😏</h2>
+  <img src="https://drive.google.com/uc?export=download&id=EYE_FILE_ID" class="photo" id="eyePhoto" alt="Jaanvi's Eye">
+  <div class="eye-msg" id="eyeMsg"></div>
+</div>
+
+<!-- Section 3: Secret Message -->
+<div class="section">
+  <h2>Secret Message</h2>
+  <button class="secret-btn" onclick="revealMessage()">Click me 😏</button>
+  <div class="secret-msg" id="secretMsg">Jaanvi, you’re my favorite troublemaker ❤</div>
+</div>
+
+<!-- Section 4: Music -->
+<div class="section">
+  <h2>Listen to this 🎵</h2>
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=MUSIC_FILE_ID" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  // Scroll animations
+  const sections = document.querySelectorAll('.section');
+  const revealSection = () => {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100) {
+        section.classList.add('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealSection);
+  revealSection();
+
+  // Secret button
+  function revealMessage() {
+    const msg = document.getElementById('secretMsg');
+    msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Eye hover message with typewriter effect
+  const eyePhoto = document.getElementById('eyePhoto');
+  const eyeMsg = document.getElementById('eyeMsg');
+  const messageText = "Those eyes… dangerous! How am I supposed to focus anywhere else? 😏💖";
+
+  eyePhoto.addEventListener('mouseenter', () => {
+    eyeMsg.style.display = 'block';
+    eyeMsg.textContent = ""; // clear previous text
+    let i = 0;
+    const typing = setInterval(() => {
+      eyeMsg.textContent += messageText[i];
+      i++;
+      if(i >= messageText.length) clearInterval(typing);
+    }, 50); // typing speed
+  });
+
+  eyePhoto.addEventListener('mouseleave', () => {
+    eyeMsg.style.display = 'none';
+  });
+
+  // Floating hearts
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+  }
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
